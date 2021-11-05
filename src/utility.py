@@ -26,7 +26,7 @@ async def find_torrents_recursively(root_url: str) -> List[str]:
     # Check for torrent files on current level
     torrents_file_urls = list(set([urljoin(root_url, link.get('href')) for link in
                                    soup.select('a[href$=".iso.torrent"], a[href$=".img.torrent"], '
-                                               'a[href$=".zip.torrent"]')]))
+                                               'a[href$=".zip.torrent"], a[href$=".ova.torrent"]')]))
     logging.debug(f'Found {len(torrents_file_urls)} unique image torrents in current directory')
 
     # Check for torrent files on sub-levels
